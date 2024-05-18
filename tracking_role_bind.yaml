@@ -1,0 +1,13 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+ name: tracking-server-rolebinding
+ namespace: airflow # замените на нужное пространство имён
+subjects:
+  - kind: ServiceAccount
+    name: mlflow-tracking # замените на имя учётной записи сервиса tracking_server
+    apiGroup: ""
+roleRef:
+ kind: Role
+ name: tracking-server-role # замените на имя созданной роли
+ apiGroup: rbac.authorization.k8s.io

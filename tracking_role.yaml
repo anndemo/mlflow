@@ -1,0 +1,16 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+ name: tracking-server-role
+ namespace: airflow # замените на нужное пространство имён
+rules:  
+    - apiGroups:  
+        - ""  
+      resources:  
+        - pods  
+      verbs:  
+        - get  
+        - list  
+        - watch  
+        - update
+

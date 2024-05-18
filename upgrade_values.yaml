@@ -1,0 +1,47 @@
+tracking:
+  persistence:
+    existingClaim: temp-data-for-mlflow 
+    mountPath: /bitnami/mlflow
+    size: 500Mi
+  auth:
+    enabled: false
+  service:
+    type: ClusterIP
+    ports:
+      http: 5000
+  podSecurityContext:
+    enabled: false
+  containerSecurityContext:
+    enabled: false
+run:
+  persistence:
+    enabled: true
+    existingClaim: temp-data-for-mlflow
+    mountPath: /bitnami/mlflow/data
+    size: 500Mi
+  podSecurityContext:
+    enabled: false
+  containerSecurityContext:
+    enabled: false
+postgresql:
+  enabled: false
+  externalDatabase:
+    host: airflow-postgresql.airflow.svc.cluster.local
+    port: 5432
+    existingSecret: airflow-postgresql
+    existingSecretPasswordKey: postgres-password
+externalS3:
+  host: myminio.minio.svc.cluster.local
+  port: 9000
+  useCredentialsInSecret: true
+  existingSecret: connect-minio-secret
+  existingSecretAccessKeyIDKey: MINIO_USER
+  existingSecretKeySecretKey: MINIO_PASSWORD
+  protocol: http
+  bucket: mlflow
+  serveArtifacts: true
+
+minio:
+  enabled: false
+
+
