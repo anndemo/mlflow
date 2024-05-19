@@ -9,20 +9,6 @@ tracking:
     type: ClusterIP
     ports:
       http: 5000
-  podSecurityContext:
-    enabled: false
-  containerSecurityContext:
-    enabled: false
-run:
-  persistence:
-    enabled: true
-    existingClaim: temp-data-for-mlflow
-    mountPath: /bitnami/mlflow/data
-    size: 500Mi
-  podSecurityContext:
-    enabled: false
-  containerSecurityContext:
-    enabled: false
 postgresql:
   enabled: false
   externalDatabase:
