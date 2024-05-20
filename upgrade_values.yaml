@@ -16,16 +16,8 @@ postgresql:
     port: 5432
     existingSecret: airflow-postgresql
     existingSecretPasswordKey: postgres-password
-externalS3:
-  host: myminio.minio.svc.cluster.local
-  port: 9000
-  useCredentialsInSecret: true
-  existingSecret: mlflow-connect-minio-secret 
-  protocol: http
-  bucket: mlflow
-  serveArtifacts: true
-
 minio:
-  enabled: false
+  enabled: true
+  
 
 
