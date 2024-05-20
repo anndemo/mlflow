@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: temp-data-for-mlflows
+  name: temp-data-for-mlflow
   namespace: airflow
 spec:
   resources:

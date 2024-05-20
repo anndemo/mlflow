@@ -20,9 +20,7 @@ externalS3:
   host: myminio.minio.svc.cluster.local
   port: 9000
   useCredentialsInSecret: true
-  existingSecret: connect-minio-secret
-  existingSecretAccessKeyIDKey: MINIO_USER
-  existingSecretKeySecretKey: MINIO_PASSWORD
+  existingSecret: mlflow-connect-minio-secret 
   protocol: http
   bucket: mlflow
   serveArtifacts: true
